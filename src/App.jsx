@@ -4,11 +4,11 @@ import "./App.css";
 
 function App() {
   const slides = [
-    { url: "https://hilarious-horse-5d4f5b.netlify.app/img-01.webp" },
-    { url: "https://hilarious-horse-5d4f5b.netlify.ap/img-02.jpg" },
-    { url: "https://hilarious-horse-5d4f5b.netlify.app/image-1.jpg" },
-    { url: "https://hilarious-horse-5d4f5b.netlify.app/img-02.jpg" },
-    { url: "https://hilarious-horse-5d4f5b.netlify.app/image-1.jpg" },
+    { url: "https://nsra.netlify.app/img-01.webp" },
+    { url: "https://nsra.netlify.app/img-02.jpg" },
+    { url: "https://nsra.netlify.app/image-1.jpg" },
+    { url: "https://nsra.netlify.app/img-02.jpg" },
+    { url: "https://nsra.netlify.app/image-1.jpg" },
   ];
 
   return (
