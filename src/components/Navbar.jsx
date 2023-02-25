@@ -16,7 +16,7 @@ export default function Navbar() {
               href="#pablo"
             >
               <img
-                src="http://127.0.0.1:5173/logo.jpg "
+                src="https://hilarious-horse-5d4f5b.netlify.app/logo.jpg "
                 width={50}
                 height={50}
               />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const slideStyles = {
   width: "100%",
@@ -42,27 +42,40 @@ const dotsContainerStyles = {
 
 const dotStyle = {
   margin: "0 3px",
-  color: "grey",
+  // color: "grey",
   cursor: "pointer",
 
   fontSize: "20px",
 };
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = ({ slides, autoPlayInterval = 4000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      const isLastSlide = currentIndex === slides.length - 1;
+      const newIndex = isLastSlide ? 0 : currentIndex + 1;
+      setCurrentIndex(newIndex);
+    }, autoPlayInterval);
+    return () => clearInterval(slideInterval);
+  }, [currentIndex, slides.length, autoPlayInterval]);
+
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
+
   const goToNext = () => {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
+
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
